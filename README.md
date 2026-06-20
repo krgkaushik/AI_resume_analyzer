@@ -1,129 +1,310 @@
-AI Resume Analyzer
-A complete Machine Learning pipeline + Streamlit web app that automatically classifies resumes into job categories using NLP, TF-IDF, and Logistic Regression.
+# AI Resume Analyzer
 
-✨ Features
-Text Cleaning & Preprocessing: Removes URLs, emails, special characters, and normalizes text.
+A complete **Machine Learning pipeline** and **Streamlit web application** that automatically analyzes and classifies resumes into job categories using **Natural Language Processing (NLP)**, **TF-IDF Vectorization**, and **Logistic Regression**.
 
-TF-IDF Vectorization: Converts resumes into numerical features (5,000 max features).
+---
 
-Multi-class Classification: Predicts one of 25+ job categories.
+## ✨ Features
 
-Confidence Scoring: Shows prediction probability.
+* **Text Cleaning & Preprocessing**
 
-Streamlit Web App: User-friendly interface for uploading and analyzing resumes.
+  * Removes URLs, email addresses, special characters, and extra whitespace.
+  * Converts text to a normalized format for better model performance.
 
-Model Persistence: Pre-trained models saved as .pkl files.
+* **TF-IDF Vectorization**
 
-Jupyter Notebook: Full exploratory analysis and training pipeline.
+  * Transforms resume text into numerical feature vectors.
+  * Uses up to **5,000 features** for efficient representation.
 
-📊 Dataset
-File: Resume.csv
+* **Multi-Class Resume Classification**
 
-Source: Kaggle Resume Dataset
+  * Predicts one of **25+ job categories** such as:
 
-Columns:
+    * Data Science
+    * HR
+    * Java Developer
+    * Python Developer
+    * Testing
+    * Business Analyst
+    * And more.
 
-ID
+* **Confidence Score**
 
-Category (target: e.g., HR, Java Developer, Data Science, etc.)
+  * Displays prediction probability to indicate model confidence.
 
-Resume_str (raw text)
+* **Interactive Streamlit Web App**
 
-Resume_html (dropped during processing)
+  * User-friendly interface for uploading or pasting resume content.
+  * Provides instant category predictions.
 
-textAI-Resume-Analyzer/
-├── app.py                    # Streamlit web application
-├── ai_resume_analyzer.ipynb  # Full ML pipeline & EDA
-├── Resume.csv                # Raw dataset
-├── data/                     # Additional data (if any)
-├── requirements.txt          # Python dependencies
-├── resume_vectorizer.pkl     # Saved TF-IDF vectorizer
-├── resume_classifier.pkl     # Trained Logistic Regression model
+* **Model Persistence**
+
+  * Pre-trained TF-IDF vectorizer and Logistic Regression model are saved as `.pkl` files for quick deployment.
+
+* **Complete ML Pipeline**
+
+  * Includes data preprocessing, feature engineering, model training, evaluation, and deployment.
+
+---
+
+## 📊 Dataset
+
+**Dataset:** `Resume.csv`
+
+### Dataset Columns
+
+| Column      | Description                                           |
+| ----------- | ----------------------------------------------------- |
+| ID          | Unique identifier                                     |
+| Category    | Target job category                                   |
+| Resume_str  | Raw resume text                                       |
+| Resume_html | HTML version of resume (removed during preprocessing) |
+
+### Target Categories
+
+The dataset contains resumes from **25+ professional domains**, enabling robust multi-class classification.
+
+---
+
+## 📁 Project Structure
+
+```text
+AI-Resume-Analyzer/
+│
+├── app.py                     # Streamlit web application
+├── ai_resume_analyzer.ipynb   # ML pipeline, EDA, and training
+├── Resume.csv                 # Dataset
+├── data/                      # Additional data files
+├── requirements.txt           # Project dependencies
+├── resume_vectorizer.pkl      # Saved TF-IDF vectorizer
+├── resume_classifier.pkl      # Trained Logistic Regression model
 ├── README.md
-└── (optional) notebooks/ or scripts/
-🚀 Installation
-Clone the repository
-Bash
+└── notebooks/ (optional)
+```
+
+---
+
+## 🚀 Installation
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/yourusername/ai-resume-analyzer.git
 cd ai-resume-analyzer
-Create a virtual environment (recommended)
-Bash
+```
+
+### 2. Create a Virtual Environment (Recommended)
+
+```bash
 python -m venv venv
-source venv/bin/activate    # Windows: venv\Scripts\activate
-Install dependencies
-Bash
+```
+
+#### Activate Environment
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-📋 Requirements (requirements.txt)
-Plaintext
+```
+
+---
+
+## 📋 Requirements
+
+```text
 streamlit
 pandas
-scikit-learn
 numpy
+scikit-learn
 joblib
-💻 Usage
-1. Run the Streamlit App (Recommended)
-Bash
+```
+
+Install manually if needed:
+
+```bash
+pip install streamlit pandas numpy scikit-learn joblib
+```
+
+---
+
+## 💻 Usage
+
+### Run the Streamlit Application
+
+```bash
 streamlit run app.py
-Then open your browser at the URL shown (usually http://localhost:8501). In the app you can:
+```
 
-Paste resume text.
+Open the generated local URL (typically):
 
-Upload resume file (.txt, .pdf, etc.).
+```text
+http://localhost:8501
+```
 
-Get instant category prediction + confidence score.
+### Features Available in the App
 
-2. Train / Retrain the Model
-Open ai_resume_analyzer.ipynb and run all cells, or use the training code snippets.
+* Paste resume text directly.
+* Upload resume files.
+* Predict job category instantly.
+* View confidence score for predictions.
 
-3. Test Model via Script
-Python
-import pickle
-import re
-# (paste the test function from your code)
-🔬 How It Works
-Pipeline Steps
-Data Loading → pd.read_csv('Resume.csv')
+---
 
-Cleaning: Lowercase, remove URLs/emails, remove special characters, normalize whitespace.
+## 🔬 Machine Learning Pipeline
 
-Feature Engineering → TfidfVectorizer(max_features=5000, stop_words='english')
+### 1. Data Loading
 
-Model Training → LogisticRegression(max_iter=1000)
+```python
+df = pd.read_csv("Resume.csv")
+```
 
-Evaluation → Accuracy + Classification Report.
+### 2. Text Preprocessing
 
-Saving → Pickle both vectorizer and model.
+The resumes undergo several preprocessing steps:
 
-Inference → Clean → Vectorize → Predict + Probability.
+* Convert text to lowercase.
+* Remove URLs.
+* Remove email addresses.
+* Remove special characters and punctuation.
+* Normalize whitespace.
 
-📈 Model Performance
-Accuracy: ~XX.XX% (check notebook for latest)
+### 3. Feature Engineering
 
-Multi-class support across 25+ categories.
+```python
+TfidfVectorizer(
+    max_features=5000,
+    stop_words="english"
+)
+```
 
-🧪 Technologies Used
-Python
+TF-IDF converts textual resume data into numerical vectors suitable for machine learning.
 
-pandas — Data handling
+### 4. Model Training
 
-scikit-learn — TF-IDF + Logistic Regression
+```python
+LogisticRegression(max_iter=1000)
+```
 
-Streamlit — Web interface
+The Logistic Regression model is trained on the TF-IDF feature vectors for multi-class classification.
 
-Jupyter Notebook — Experimentation
+### 5. Model Evaluation
 
-pickle — Model serialization
+Performance is evaluated using:
 
-🤝 Contributing
-Contributions are welcome! Feel free to:
+* Accuracy Score
+* Classification Report
+* Precision
+* Recall
+* F1-Score
 
-Improve model accuracy (try XGBoost, BERT, etc.).
+### 6. Model Saving
 
-Enhance the Streamlit UI.
+```python
+pickle.dump(vectorizer, open("resume_vectorizer.pkl", "wb"))
+pickle.dump(model, open("resume_classifier.pkl", "wb"))
+```
 
-Add PDF parsing support.
+### 7. Inference Pipeline
 
-Add more evaluation metrics.
+```text
+Resume Text
+      ↓
+Preprocessing
+      ↓
+TF-IDF Vectorization
+      ↓
+Classification Model
+      ↓
+Predicted Category + Confidence Score
+```
 
-📄 License
-MIT License — feel free to use this project for learning or commercial purposes.
+---
+
+## 📈 Model Performance
+
+| Metric        | Value                             |
+| ------------- | --------------------------------- |
+| Accuracy      | Check notebook for latest results |
+| Categories    | 25+                               |
+| Algorithm     | Logistic Regression               |
+| Vectorization | TF-IDF                            |
+
+---
+
+## 🧪 Technologies Used
+
+* **Python**
+* **Pandas** – Data Manipulation
+* **NumPy** – Numerical Computing
+* **Scikit-Learn** – Machine Learning
+* **TF-IDF Vectorization**
+* **Logistic Regression**
+* **Streamlit** – Web Application
+* **Jupyter Notebook** – Development & Experimentation
+* **Pickle / Joblib** – Model Serialization
+
+---
+
+## 🔮 Future Enhancements
+
+Potential improvements include:
+
+* Implementing **XGBoost**, **Random Forest**, or **LightGBM**.
+* Using transformer-based models such as **BERT**, **RoBERTa**, or **DistilBERT**.
+* Adding resume ranking and ATS score generation.
+* Supporting PDF and DOCX parsing.
+* Deploying the application on Streamlit Cloud or AWS.
+* Adding advanced visualization dashboards.
+* Improving prediction confidence calibration.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+You can contribute by:
+
+* Improving model performance.
+* Enhancing UI/UX.
+* Adding new resume categories.
+* Supporting additional file formats.
+* Implementing deep learning models.
+
+### Steps
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Commit and push.
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this project for educational, personal, or commercial purposes.
+
+---
+
+## 👨‍💻 Author
+
+**Your Name**
+
+Machine Learning & Data Science Enthusiast
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
