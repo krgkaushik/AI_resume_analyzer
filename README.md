@@ -31,8 +31,6 @@ Resume_str (raw text)
 
 Resume_html (dropped during processing)
 
-🛠️ Project Structure
-Plaintext
 textAI-Resume-Analyzer/
 ├── app.py                    # Streamlit web application
 ├── ai_resume_analyzer.ipynb  # Full ML pipeline & EDA
