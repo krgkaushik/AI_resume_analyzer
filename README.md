@@ -303,7 +303,7 @@ You are free to use, modify, and distribute this project for educational, person
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Kaushik Gunjkar**
 
 Machine Learning & Data Science Enthusiast
 
