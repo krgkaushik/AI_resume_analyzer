@@ -1,37 +1,28 @@
-README.md
-Markdown# AI Resume Analyzer
+# AI Resume Analyzer
 
-A complete **Machine Learning pipeline** + **Streamlit web app** that automatically classifies resumes into job categories using NLP and TF-IDF + Logistic Regression.
+A complete **Machine Learning** pipeline and **Streamlit** web application that automatically classifies resumes into appropriate job categories using NLP and TF-IDF.
 
-![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![scikit--learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikit-learn&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikit-learn&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 
 ## ✨ Features
 
-- **Text Cleaning & Preprocessing**: Removes URLs, emails, special characters, and normalizes text
-- **TF-IDF Vectorization**: Converts resumes into numerical features (5,000 max features)
-- **Multi-class Classification**: Predicts one of 25+ job categories
-- **Confidence Scoring**: Shows prediction probability
-- **Streamlit Web App**: User-friendly interface for uploading and analyzing resumes
-- **Model Persistence**: Pre-trained models saved as `.pkl` files
-- **Jupyter Notebook**: Full exploratory analysis and training pipeline
+- Text cleaning and preprocessing (removes URLs, emails, special characters)
+- TF-IDF vectorization with 5000 features
+- Multi-class classification using Logistic Regression
+- Confidence score for each prediction
+- Streamlit web interface for easy use
+- Pre-trained model and vectorizer included
+- Full Jupyter notebook for EDA and training
 
 ## 📊 Dataset
 
 - **File**: `Resume.csv`
-- **Source**: Kaggle Resume Dataset
-- **Columns**:
-  - `ID`
-  - `Category` (target: e.g., HR, Java Developer, Data Science, etc.)
-  - `Resume_str` (raw text)
-  - `Resume_html` (dropped during processing)
+- Contains resumes from multiple domains (HR, IT, Finance, Data Science, etc.)
+- Target variable: `Category`
 
-**Category Distribution** (example from training):
-
-python
-# See notebook for full distribution
-🛠️ Project Structure
+## 🛠 Project Structure
 textAI-Resume-Analyzer/
 ├── app.py                    # Streamlit web application
 ├── ai_resume_analyzer.ipynb  # Full ML pipeline & EDA
@@ -42,6 +33,7 @@ textAI-Resume-Analyzer/
 ├── resume_classifier.pkl     # Trained Logistic Regression model
 ├── README.md
 └── (optional) notebooks/ or scripts/
+
 🚀 Installation
 
 Clone the repositoryBashgit clone https://github.com/yourusername/ai-resume-analyzer.git
@@ -129,4 +121,4 @@ Add PDF parsing support
 Add more evaluation metrics
 
 📄 License
-MIT License — feel free to use this project for learning or commercial purposes.   use this readme file do not change anything just convert in file for i can direct paste on my github
+MIT License — feel free to use this project for learning or commercial purposes.
