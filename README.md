@@ -1,4 +1,5 @@
-# AI Resume Analyzer
+README.md
+Markdown# AI Resume Analyzer
 
 A complete **Machine Learning pipeline** + **Streamlit web app** that automatically classifies resumes into job categories using NLP and TF-IDF + Logistic Regression.
 
@@ -28,7 +29,7 @@ A complete **Machine Learning pipeline** + **Streamlit web app** that automatica
 
 **Category Distribution** (example from training):
 
-```python
+python
 # See notebook for full distribution
 🛠️ Project Structure
 textAI-Resume-Analyzer/
@@ -128,4 +129,4 @@ Add PDF parsing support
 Add more evaluation metrics
 
 📄 License
-MIT License — feel free to use this project for learning or commercial purposes.
+MIT License — feel free to use this project for learning or commercial purposes.   use this readme file do not change anything just convert in file for i can direct paste on my github
