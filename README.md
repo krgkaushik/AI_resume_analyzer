@@ -34,7 +34,7 @@ textAI-Resume-Analyzer/
 ├── README.md
 └── (optional) notebooks/ or scripts/
 
-🚀 Installation
+##🚀 Installation
 
 Clone the repositoryBashgit clone https://github.com/yourusername/ai-resume-analyzer.git
 cd ai-resume-analyzer
