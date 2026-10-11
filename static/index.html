@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume ATS Analyzer</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AI-powered hiring analysis</p>
+          <h1>Resume vs JD ATS Score</h1>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h2>Enter candidate details</h2>
+
+          <label for="resumeText">Resume text</label>
+          <textarea id="resumeText" rows="14" placeholder="Paste the candidate resume here..."></textarea>
+
+          <label for="jdText">Job description</label>
+          <textarea id="jdText" rows="10" placeholder="Paste the job description here..."></textarea>
+
+          <button id="scoreBtn">Analyze Resume</button>
+          <div id="status" class="status" aria-live="polite"></div>
+        </section>
+
+        <section class="panel result-panel">
+          <h2>Match score</h2>
+
+          <div class="score-card">
+            <div class="score-label">ATS Score</div>
+            <div id="atsScore" class="score-value">0%</div>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric">
+              <span>Match %</span>
+              <strong id="matchPercent">0%</strong>
+            </div>
+            <div class="metric">
+              <span>Industry</span>
+              <strong id="predictedIndustry">-</strong>
+            </div>
+            <div class="metric">
+              <span>Model confidence</span>
+              <strong id="modelConfidence">0%</strong>
+            </div>
+          </div>
+
+          <div class="keyword-box">
+            <h3>Matched keywords</h3>
+            <div id="matchedKeywords" class="keyword-list">No result yet</div>
+          </div>
+
+          <div class="keyword-box">
+            <h3>Missing keywords</h3>
+            <div id="missingKeywords" class="keyword-list">No result yet</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
